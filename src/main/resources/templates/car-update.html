@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<meta charset="UTF-8">
+<title>Create car</title>
+</head>
+<body>
+<form action="#" th:action="@{/car-update}" th:object="${car}" method="post">
+    <label for="id">ID</label>
+    <input readonly type="number" th:field="*{id}" id="id" placeholder="ID">
+    <br/>
+    <label for="brandCar">Brand Car</label>
+    <input type="text" th:field="*{brandCar}" id="brandCar" placeholder="Brand Car">
+    <br/>
+    <label for="engineCapacity">Engine Capacity</label>
+    <input type="text" th:field="*{engineCapacity}" id="engineCapacity" placeholder="Engine Capacity">
+    <br/>
+    <input type="submit" value="Update Car">
+</form>
+</body>
+</html>
