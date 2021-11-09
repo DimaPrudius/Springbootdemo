@@ -8,7 +8,7 @@
 <form action="#" th:action="@{/car-create}" th:object="${car}" method="post">
     <label for="brandCar">Brand car</label>
     <input type="text" th:field="*{brandCar}" id="brandCar" placeholder="Brand car">
-    <label for="engineCapacity">Engine Capacity</label>
+    <label for="engineCapacity">Engine capacity</label>
     <input type="text" th:field="*{engineCapacity}" id="engineCapacity" placeholder="Engine capacity">
     <input type="submit" value="Create Car">
 </form>
