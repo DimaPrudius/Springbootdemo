@@ -8,24 +8,25 @@
 <div th:switch="${cars}">
     <h2 th:case="null">No cars found!</h2>
     <div th:case="*">
-        <h2>Users</h2>
+        <h2>Cars</h2>
         <table>
-            <thead>
             <tr>
                 <th>Id</th>
                 <th>Brand car</th>
                 <th>Engine capacity</th>
+                <th>Year car</th>
+                <th>Picture</th>
             </tr>
-            </thead>
-            <tbody>
             <tr th:each="car : ${cars}">
-                <td th:text="${car.id}"></td>
+                <td th:text="${car.carId}"></td>
                 <td th:text="${car.brandCar}"></td>
                 <td th:text="${car.engineCapacity}"></td>
-                <td><a th:href="@{car-update/{id}(id=${car.id})}">Edit</a></td>
-                <td><a th:href="@{car-delete/{id}(id=${car.id})}">Delete</a></td>
+                <td th:text="${car.year}"></td>
+                <td th:text="${car.picture}"></td>
+                <td><a th:href="@{car-update/{id}(id=${car.carId})}">Edit</a></td>
+                <td><a th:href="@{car-delete/{id}(id=${car.carId})}">Delete</a></td>
+                <td><a href="/review-create">Create review</a></td>
             </tr>
-            </tbody>
         </table>
     </div>
     <p><a href="/car-create">Create cars</a></p>

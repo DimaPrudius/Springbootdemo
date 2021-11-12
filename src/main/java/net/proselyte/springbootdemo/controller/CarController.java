@@ -3,11 +3,14 @@ package net.proselyte.springbootdemo.controller;
 import net.proselyte.springbootdemo.model.Car;
 import net.proselyte.springbootdemo.service.CarService;
 
+import net.proselyte.springbootdemo.service.ReviewsService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
 
@@ -38,15 +41,15 @@ public class CarController {
         return "redirect:/cars";
     }
 
-    @GetMapping("car-delete/{id}")
-    public String deleteCar(@PathVariable("id") Long id) {
-        carService.deleteById(id);
+    @GetMapping("car-delete/{carId}")
+    public String deleteCar(@PathVariable("carId") Long carId) {
+        carService.deleteById(carId);
         return "redirect:/cars";
     }
 
-    @GetMapping("/car-update/{id}")
-    public String updateCarForm(@PathVariable("id") Long id, Model model) {
-        Car car = carService.findById(id);
+    @GetMapping("/car-update/{carId}")
+    public String updateCarForm(@PathVariable("carId") Long carId, Model model) {
+        Car car = carService.findById(carId);
         model.addAttribute("car", car);
         return "/car-update";
     }
@@ -56,4 +59,5 @@ public class CarController {
         carService.saveCar(car);
         return "redirect:/cars";
     }
+
 }
