@@ -5,14 +5,17 @@
 </head>
 <body>
 <form action="#" th:action="@{/car-update}" th:object="${car}" method="post">
-    <label for="id">ID</label>
-    <input readonly type="number" th:field="*{id}" id="id" placeholder="ID">
+    <label for="carId">ID</label>
+    <input readonly type="number" th:field="*{carId}" id="carId" placeholder="ID">
     <br/>
     <label for="brandCar">Brand Car</label>
     <input type="text" th:field="*{brandCar}" id="brandCar" placeholder="Brand Car">
     <br/>
     <label for="engineCapacity">Engine Capacity</label>
     <input type="text" th:field="*{engineCapacity}" id="engineCapacity" placeholder="Engine Capacity">
+    <br/>
+    <label for="year">Year car</label>
+    <input type="text" th:field="*{year}" id="year" placeholder="Year car">
     <br/>
     <input type="submit" value="Update Car">
 </form>
